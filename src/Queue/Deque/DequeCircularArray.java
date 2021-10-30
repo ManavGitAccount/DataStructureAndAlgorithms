@@ -1,5 +1,7 @@
 package Queue.Deque;
 
+import com.sun.deploy.security.SelectableSecurityManager;
+
 import java.util.NoSuchElementException;
 
 public class DequeCircularArray {
@@ -110,9 +112,29 @@ public class DequeCircularArray {
     public void display(){
         int i;
         if(isEmpty()){
-            System.out.println();
+            System.out.println("Queue is empty");
             return;
         }
-        
+
+        System.out.println("Queue is : ");
+        i = front;
+        if(front <= rear) {
+            while (i <= rear) {
+                System.out.println(queueArray[i++] + " ");
+            }
+        }
+        else {
+                while(i<=queueArray.length - 1){
+                    System.out.println(queueArray[i++] + " ");
+                }
+
+                i = 0;
+                while(i <= rear){
+                    System.out.println(queueArray[i++] + " ");
+                }
+            }
+        System.out.println();
+        }
+
     }
-}
+
