@@ -9,9 +9,12 @@ package SingleLinkedList;
  */
 public class Node {
 
+    // Class Attributes
     public int i;
     public Node link;
 
+    // Constructor that initializes
+    // class attributes.
     public Node(int i) {
         this.i = i;
         this.link = null;

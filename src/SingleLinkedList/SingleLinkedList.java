@@ -3,13 +3,21 @@ package SingleLinkedList;
 import java.util.Scanner;
 
 public class SingleLinkedList {
-    
+
+    // Using the Node class to build the linked list. Node has two elements. One is the data part and the other
+    // is the referencing node which is the link. So when we build the list,we use the Nodes data and reference to
+    // the other nodes to construct.
     private Node start;
-    
+
+
+    // SingleLinked List Constructor. We just initialize the class attribute here, we are just saying that I initialize
+    // my linked list and point the start node to null for starters.
     public SingleLinkedList(){
         this.start = null;
     }
 
+    // This is the createList method. This is the method that is used to create the list. The important point to remember
+    // is that we are creating a list by inserting data at the end.
     public void createList() {
          int i, n, data;
 
@@ -30,18 +38,35 @@ public class SingleLinkedList {
 
     }
 
+    // Display list method. This method displays the linked list from the first node to the last. Left to right.
     public void displayList() {
-        Node p;
+
+        Node p; // Create a temporary node p as starter node.
+
+        // if the start attribute, defined at class level is null, means linked list is empty. Just
+        //return.
         if(start == null){
             System.out.println("List is empty");
             return;
         }
+
         System.out.println("List is : ");
+
+        // If the code comes here, it means the linked list is not empty at least. We point the temporary node p to
+        // the Node start.
         p = start;
+
+        // While the Node still has data, which means that is not empty keep the loop going. Until the condition is
+        // true keep on doing stuff.
         while(p != null){
+
+            // print the node info
             System.out.print(p.i + " -->");
+
+            // move to the next node by following the link
             p = p.link;
         }
+        // When the loop is over, code comes here and prints null.
         System.out.print("null");
     }
 
@@ -51,8 +76,14 @@ public class SingleLinkedList {
     public void searchData(int data) {
     }
 
-    public void insertInBegining(int data) {
+    // Method to add data to the start of the list.
+    public void insertInBeginning(int data) {
 
+        // This is a 3-step process.
+        // First create the temp node
+        // Second, point temps link to start (start is the beginning of the list)
+        // lastly point start to temp. This way temp becomes the new first node. If start does not point to temp,
+        // then the link of start to the rest of the list is lost. Also step 2 and 3 can not change in order.  
         Node temp = new Node(data);
         temp.link = start;
         start = temp;

@@ -58,7 +58,7 @@ public class Demo {
                 case 4:
                     System.out.println("Enter the element to be inserted :");
                     data = scan.nextInt();
-                    myList.insertInBegining(data);
+                    myList.insertInBeginning(data);
                     break;
                 case 5:
                     System.out.println("Enter the element to be inserted :");
