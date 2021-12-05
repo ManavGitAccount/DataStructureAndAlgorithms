@@ -47,6 +47,30 @@ public class BinarySearchTree {
         return false;
     }
 
+    public void display(){
+        display(root, 0);
+        System.out.println();
+    }
+
+    private void display(Node p, int level){
+        int i;
+        if(p==null){
+            return;
+        }
+        display(p.rchild, level + 1);
+        System.out.println();
+
+        /**
+         * I don't understand whats happening here
+         */
+        for(i=0; i<level; i++){
+            System.out.print("      ");
+        }
+        System.out.print(p.info);
+
+        display(p.lchild, level+1);
+    }
+
     /**
      * Recursive Methods Min and Max
      */
@@ -176,39 +200,35 @@ public class BinarySearchTree {
         root = delete(root, x);
     }
 
-    private Node delete(Node p, int x){
+    private Node delete(Node p, int x) {
         Node ch, s;
 
-        if(p == null){
+        if (p == null) {
             System.out.println(x + " not found ");
             return p;
         }
-        if(x < p.info){
+        if (x < p.info) {
             p.lchild = delete(p.lchild, x);
-        }
-        else if(x > p.info){
-            p.rchild = delete(p.rchild , x);
-        }
-        else{
-            if(p.lchild != null && p.rchild != null){
+        } else if (x > p.info) {
+            p.rchild = delete(p.rchild, x);
+        } else {
+            if (p.lchild != null && p.rchild != null) {
                 s = p.rchild;
-                while(s.lchild != null){
+                while (s.lchild != null) {
                     s = s.lchild;
                 }
                 p.info = s.info;
                 p.rchild = delete(p.rchild, s.info);
-            }
-            else
-            {
-                if(p.lchild != null){
+            } else {
+                if (p.lchild != null) {
                     ch = p.lchild;
-                }
-                else{
+                } else {
                     ch = p.rchild;
                 }
                 p = ch;
             }
         }
+        return p;
     }
 
     /**
@@ -266,5 +286,77 @@ public class BinarySearchTree {
             par.lchild = ch;
         else
             par.rchild = ch;
+    }
+
+    public void postOrder(){
+        postOrder(root);
+        System.out.println();
+    }
+
+    private void postOrder(Node p){
+        if(p == null){
+            return;
+        }
+        postOrder(p.lchild);
+        postOrder(p.rchild);
+        System.out.print(p.info + "      ");
+    }
+
+    public void preOrder(){
+        preOrder(root);
+        System.out.println();
+    }
+
+    private void preOrder(Node p){
+        if(p == null){
+            return;
+        }
+        System.out.print(p.info + "     ");
+        preOrder(p.lchild);
+        preOrder(p.rchild);
+    }
+
+    public void inOrder(){
+        inOrder(root);
+        System.out.println();
+    }
+
+    private void inOrder(Node p){
+        if(p == null){
+            return;
+        }
+        inOrder(p.lchild);
+        System.out.print(p.info + "  ");
+        inOrder(p.rchild);
+    }
+
+    public int height(){
+        return height(root);
+    }
+
+    private int height(Node p){
+        int hL,hR;
+
+        if(p==null){
+            return 0;
+        }
+        hL = height(p.lchild);
+        hR = height(p.rchild);
+
+        if(hL > hR){
+            return 1+hL;
+        }
+        else{
+            return 1+hR;
+        }
+    }
+
+    public void createTree(){
+        root = new Node('P');
+        root.lchild = new Node('Q');
+        root.rchild = new Node('R');
+        root.lchild.lchild = new Node('A');
+        root.lchild.rchild = new Node('B');
+        root.rchild.lchild = new Node('X');
     }
 }

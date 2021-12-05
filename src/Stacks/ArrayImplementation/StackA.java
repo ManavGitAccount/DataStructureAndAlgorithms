@@ -10,15 +10,15 @@ public class StackA {
 
     // Default constructor initialized to 10 array size and is empty as top points to -1
     public StackA(){
-        stackArray = new int[10];
-        top = -1;
+        this.stackArray = new int[10];
+        this.top = -1;
     }
 
     // One argument constructor takes the size of the array and creates one with
     // a specified size
     public StackA(int maxSize){
-        stackArray = new int[maxSize];
-        top = -1;
+        this.stackArray = new int[maxSize];
+        this.top = -1;
     }
 
     // Returns the number of elements in the stack.
