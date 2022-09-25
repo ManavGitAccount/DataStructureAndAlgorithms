@@ -7,6 +7,7 @@ public class Node {
     char info;
 
     public Node(char ch){
+        //Sample comment
         this.leftChild = null;
         this.rightChild = null;
         info = ch;
