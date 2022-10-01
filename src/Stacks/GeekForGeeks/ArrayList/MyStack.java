@@ -27,4 +27,10 @@ public class MyStack {
     public boolean isEmpty(){
         return arrList.isEmpty();
     }
+
+    public void display(){
+        /*
+        Iterate over the arraylist to display all the elements present in the stack
+         */
+    }
 }

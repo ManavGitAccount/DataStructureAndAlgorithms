@@ -1,0 +1,2 @@
+package SortingAlgorithms.LoveBabbarCodePuzzles.ArrayProblems.Hard.MinimizetheMaximumDifference;public class MaximizeTheMinimumDifference {
+}

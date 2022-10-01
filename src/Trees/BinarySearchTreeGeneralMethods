@@ -1,0 +1,23 @@
+Binary Search Tree 
+(Search / Find, Insert, Traversal, Display, Create, Delete)
+
+1. Recursive Search Method -- 
+    a. Search an element 
+    b. Search for a node.
+2. Iterative Search --
+    a. Search for an element.
+2. Display Method -- 
+3. Recursive Find Minimum -- Find the minimum Node recursively. 
+4. Recursive Find Maximum -- Find the maximum node recursively.
+5. Iterative Find Minimum -- Find minimum element
+6. Iterative Find Maximum -- Find maximum element
+7. Recursive Insert Method -- Insert a node recursively
+8. Iterative Insert Method -- Insert a node iteratively. 
+9. Recursive Delete Method -- Delete a node recursively.
+10. Iterative Delete Method -- Delete a node iteratively.  
+7. Traversal 
+    a. Post Order
+    b. Pre Order
+    c. In Order
+8. Height of the Node. Given a node, find where it is on the tree.
+9. Create Tree -- 
