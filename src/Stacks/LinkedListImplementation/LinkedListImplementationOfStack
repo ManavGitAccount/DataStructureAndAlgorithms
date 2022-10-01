@@ -1,0 +1,8 @@
+LinkedListImplementationOfStack
+(Pop, Push, Peek, Size, Display)
+
+1. Size method -- Used to find the size of the stack.
+2. Push method -- Used to push an element to the top of the stack.
+3. Peek method -- Used to return the top most element of the stack.
+4. Pop method -- Used to return the top most element from the stack.
+5. Display -- Display all the elements of the stack.
