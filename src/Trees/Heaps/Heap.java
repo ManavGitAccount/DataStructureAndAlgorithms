@@ -6,12 +6,15 @@ public class Heap {
     private int[] a;
     private int n;
 
+    //First Constructor. All initialization is happening inside.
     public Heap(){
         a = new int[10];
         n = 0;
         a[0] = 99999;
     }
 
+    //Second Constructor. Takes in a param which is used to
+    //maximize the array.
     public Heap(int maxSize){
         a = new int[maxSize];
         n=0;
@@ -36,6 +39,7 @@ public class Heap {
         a[i] = k;
     }
 
+    //Walk through required.
     public int deleteRoot(){
         if(n==0){
             throw new NoSuchElementException("Heap is Empty");
@@ -47,6 +51,7 @@ public class Heap {
         return maxValue;
     }
 
+    //Walk through required.
     private void restoreDown(int i){
         int k=a[i];
         int lchild = 2*i, rchild=lchild+1;

@@ -1,4 +1,4 @@
-package SortingAlgorithms.MergeSort;
+package SortingAlgorithms.BasicSortingAlgorithms.MergeSort;
 
 import java.util.Scanner;
 //https://www.youtube.com/watch?v=aDX3MFL0tYs

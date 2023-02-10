@@ -1,2 +1,0 @@
-package SortingAlgorithms.LoveBabbarCodePuzzles.SortingProblems.Medium.findMissingNumberArithmeticProgression;public class missingNumberArithmeticProgression {
-}

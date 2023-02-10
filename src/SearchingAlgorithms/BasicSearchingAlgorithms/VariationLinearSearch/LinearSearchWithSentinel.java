@@ -1,4 +1,4 @@
-package SearchingAlgorithms.VariationLinearSearch;
+package SearchingAlgorithms.BasicSearchingAlgorithms.VariationLinearSearch;
 
 import java.util.Scanner;
 

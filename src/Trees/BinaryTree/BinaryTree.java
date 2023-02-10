@@ -2,8 +2,12 @@ package Trees.BinaryTree;
 
 public class BinaryTree {
 
+    //Reference to a basic root node.
+    //Basic building block.
     private Node root;
 
+    //No args Constructor. Root node pointing to null.
+    //Basic tree creator.
     public BinaryTree(){
         root = null;
     }
@@ -15,6 +19,10 @@ public class BinaryTree {
 
     private void display(Node p, int level){
         int i;
+
+        /** Case 1 : Empty tree.
+         * The tree is empty. There is nothing to display. Return.
+         */
         if(p==null){
             return;
         }

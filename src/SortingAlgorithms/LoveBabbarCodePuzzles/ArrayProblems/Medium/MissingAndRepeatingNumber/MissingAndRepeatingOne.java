@@ -1,2 +1,0 @@
-package SortingAlgorithms.LoveBabbarCodePuzzles.ArrayProblems.Medium.MissingAndRepeatingNumber;public class MissingAndRepeatingOne {
-}

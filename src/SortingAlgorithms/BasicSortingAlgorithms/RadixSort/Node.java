@@ -1,4 +1,4 @@
-package SortingAlgorithms.RadixSort;
+package SortingAlgorithms.BasicSortingAlgorithms.RadixSort;
 
 public class Node {
     public int info;

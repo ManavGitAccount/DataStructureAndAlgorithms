@@ -1,6 +1,5 @@
-package SortingAlgorithms.ShellSort;
+package SortingAlgorithms.BasicSortingAlgorithms.ShellSort;
 
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class ShellSort {

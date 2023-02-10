@@ -1,4 +1,4 @@
-package SortingAlgorithms.QuickSort;
+package SortingAlgorithms.BasicSortingAlgorithms.QuickSort;
 
 import java.util.Scanner;
 //https://www.youtube.com/watch?v=UA_Rmjfj4bw
