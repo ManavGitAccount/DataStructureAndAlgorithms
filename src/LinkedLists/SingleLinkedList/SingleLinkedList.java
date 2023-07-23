@@ -13,6 +13,7 @@ public class SingleLinkedList {
     // SingleLinked List Constructor. We just initialize the class attribute here, we are just saying that I initialize
     // my linked list and point the start node to null for starters.
     public SingleLinkedList(){
+
         this.start = null;
     }
 
@@ -74,7 +75,25 @@ public class SingleLinkedList {
     }
 
     public void searchData(int data) {
+        int position = 1;
+        Node p = start;
+        while(p != null)
+        {
+            if(p.i == data)
+            {
+                System.out.println("Element Found at position " + position);
+                break;
+            }
+            position++;
+            p=p.link;
+
+            if(p==null)
+            {
+                System.out.println("Element not found in the list");
+            }
+        }
     }
+
 
     // Method to add data to the start of the list.
     public void insertInBeginning(int data) {
@@ -83,13 +102,16 @@ public class SingleLinkedList {
         // First create the temp node
         // Second, point temps link to start (start is the beginning of the list)
         // lastly point start to temp. This way temp becomes the new first node. If start does not point to temp,
-        // then the link of start to the rest of the list is lost. Also step 2 and 3 can not change in order.  
+        // then the link of start to the rest of the list is lost. Also step 2 and 3 can not change in order.
         Node temp = new Node(data);
         temp.link = start;
         start = temp;
     }
 
-    public void insertAtEnd(int data) {
+    /*
+    Method that creates a node, adds data to it and references to the next node
+     */
+    public void  insertAtEnd(int data) {
         Node p;
         Node temp = new Node(data);
 
@@ -98,11 +120,20 @@ public class SingleLinkedList {
             return;
         }
 
+        //p refers to the first node.
         p = start;
+
+        //On completion of the entire while loop, it'll get you to the end
+        // of the list with last node p
         while (p.link != null){
+
+            //This is the forward reference.
+            // This is how we assign reference to the next node.
             p = p.link;
         }
 
+        //The last node achieved via --> p.link must refer to this temp node.
+        //This is because we are inserting at the end. Here p is the last node of the list.
         p.link = temp;
     }
 
@@ -261,7 +292,12 @@ public class SingleLinkedList {
         Node end,p,q;
 
         //outer for loop. Goes from last element to first.
+        //At the end of the for loop the last value is assigned p.
+        //It stops when end refers to the second node of the list
         for(end=null; end!= start.link; end=p){
+
+            // Initialize the inner for loop with p equal to start and keep incrementing
+            // p with p=p.link
             for(p=start; p.link != end; p=p.link ){
 
                 q = p.link;
@@ -303,24 +339,59 @@ public class SingleLinkedList {
         }
     }
 
-    public void mergeSort() {
+//    public void mergeSort() {
+//        start = mergeSortRec(start);
+//    }
+//
+//    private Node mergeSortRec(Node listStart){
+//        if( listStart== null || listStart.link == null){
+//            return listStart;
+//        }
+//        /*if more than one element */
+//        Node start1 = listStart;
+//        Node start2 = divideList(listStart);
+//        start1 = mergeSortRec(start1);
+//        start2 = mergeSortRec(start2);
+//       // Node startM = merge2(start1, start2);
+//       // return startM;
+//    }
+
+    private Node divideList(Node p){
+        Node q  = p.link.link;
+        while(q!=null && q.link != null)
+        {
+            p = p.link;
+            q = q.link.link;
+        }
+
+        Node start2 = p.link;
+        p.link = null;
+        return start2;
     }
 
     public void insertCycle(int data) {
+
+        //If the list contains no node return.
         if(start == null){
             return;
         }
 
+        // We have references to 3 nodes. p referring to start
+        // other nodes referring to null for the time being.
         Node p = start, px = null, prev = null;
 
         while(p!=null){
+            //while traversing , if the data is found, we refer p to px
             if(p.i == data){
                 px = p;
             }
+            // reference prev points to p
             prev = p;
+            // keep iterating
             p = p.link;
         }
 
+        //here we just point the link from prev to px to create the cycle.
         if(px != null){
             prev.link = px;
         }
@@ -360,20 +431,27 @@ public class SingleLinkedList {
      */
     public void removeCycle() {
 
+        //This will give us a reference to where the slow and the fast node meet.
         Node c = findCycle();
         if(c==null){
             return;
         }
         System.out.println("Node at which the cycle was detected is " + c.i);
 
+        //Two references.
         Node p =c, q = c;
         int lenCycle = 0;
+        //Here in the loop we find the length of the cycle. This goes on until the two nodes meet.
         do{
             lenCycle++;
             q=q.link;
         }while(p!=q);
         System.out.println("Length of the cycle is : " + lenCycle);
 
+        //Here we find the length of the remaining list.
+        // p points to the start and q remains where it is.
+        // The goal is to meet p and q and in this process when lenRemList keeps moving, it'll give us the count of the
+        // remaining list
         int lenRemList = 0;
         p = start;
         while(p!=q){
@@ -385,6 +463,9 @@ public class SingleLinkedList {
         int lengthList = lenCycle + lenRemList;
         System.out.println("Length of the list is : " + lengthList);
 
+        //This is the part where we remove the cycle from the list
+        //Remember the last node was pointing to the cycle. Therefore if we make the last node point to null
+        // then the cycle is removed.
         p = start;
         for(int i=1; i<=lengthList-1; i++){
             p = p.link;

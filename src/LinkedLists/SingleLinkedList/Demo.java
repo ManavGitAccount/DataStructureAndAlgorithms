@@ -11,8 +11,10 @@ public class Demo {
         // Need to know about it
         Scanner scan = new Scanner(System.in);
 
+        //creating the object of the single linked list
         SingleLinkedList  myList = new SingleLinkedList();
 
+        //using the create list method of the object to create the list
         myList.createList();
 
         while(true){
@@ -107,7 +109,7 @@ public class Demo {
                     myList.bubbleSortExLinks();
                     break;
                 case 15:
-                    myList.mergeSort();
+                   // myList.mergeSort();
                     break;
                 case 16:
                     System.out.print("Enter the element at which the cycle has to be inserted : ");

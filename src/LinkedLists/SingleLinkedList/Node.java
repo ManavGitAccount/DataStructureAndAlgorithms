@@ -11,10 +11,10 @@ public class Node {
 
     // Class Attributes
     public int i;
+    // This attribute is of type node and it always refers to the next Node in the list
     public Node link;
 
-    // Constructor that initializes
-    // class attributes.
+    // Constructor that initializes class attributes.
     public Node(int i) {
         this.i = i;
         this.link = null;
